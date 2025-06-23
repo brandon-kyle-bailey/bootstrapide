@@ -8,6 +8,7 @@ setup_tooling() {
     "Pulumi"
     "Helm"
     "CloudFormation CLI"
+    "DBeaver Community"
     "none (skip tooling installation)"
   )
 
@@ -154,6 +155,20 @@ setup_tooling() {
 
         export PATH="$HOME/.local/bin:$PATH"
       fi
+      ;;
+    "DBeaver Community")
+      if command -v dbeaver >/dev/null 2>&1; then
+        echo "✅ DBeaver is already installed."
+        return
+      fi
+      echo "Installing DBeaver Community Edition..."
+
+      sudo apt-get install -y software-properties-common
+      sudo add-apt-repository -y ppa:serge-rider/dbeaver-ce
+      sudo apt-get update -y
+      sudo apt-get install -y dbeaver-ce
+
+      echo "✅ DBeaver Community Edition installation complete."
       ;;
     "none (skip tooling installation)")
       echo "Skipping tooling installation."
