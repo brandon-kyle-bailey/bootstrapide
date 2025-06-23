@@ -33,7 +33,7 @@ elif [[ -e "$BIN_LINK" ]]; then
   echo "Warning: $BIN_LINK exists and is not a symlink. Please remove or rename it first."
 else
   echo "Creating symlink at $BIN_LINK"
-  ln -s "$INSTALL_DIR/setup.sh" "$BIN_LINK"
+  ln -s "$INSTALL_DIR/bin/setup.sh" "$BIN_LINK"
 fi
 
 # Check if ~/.local/bin is in PATH
