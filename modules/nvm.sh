@@ -31,7 +31,7 @@ EOF
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
   echo "==> Node.js version selection"
-  read -p -r "Enter Node.js version to install (leave blank for latest stable): " node_version
+  read -p "Enter Node.js version to install (leave blank for latest stable): " node_version
 
   if [[ -z "$node_version" ]]; then
     node_version="node"

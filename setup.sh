@@ -56,7 +56,7 @@ main() {
   echo "0) Exit"
   echo ""
 
-  read -p "Enter your choice [1-3]: " choice
+  read -p "Enter your choice [0-10]: " choice
 
   case "$choice" in
   1)
