@@ -16,6 +16,8 @@ mkdir -p "$BIN_DIR"
 # Clone or update repo
 if [[ -d "$INSTALL_DIR/.git" ]]; then
   echo "Updating existing bootstrapide installation..."
+
+  git reset --hard HEAD
   git -C "$INSTALL_DIR" pull
 else
   echo "Cloning bootstrapide repository into $INSTALL_DIR..."

@@ -21,6 +21,7 @@ if [[ ! -d .git ]]; then
   exit 1
 fi
 
+git reset --hard HEAD
 # Pull latest changes
 git pull origin master
 
