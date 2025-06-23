@@ -4,15 +4,20 @@
 
 OS_TYPE="$(uname -s)"
 
+# Resolve the absolute path to the directory of the current script, following symlinks
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo SCRIPT_DIR: "$SCRIPT_DIR"
+
 case "$OS_TYPE" in
 Linux*)
   echo "Detected Linux OS."
   # Either source or exec linux script
-  exec "$(dirname "$0")/linux.sh" "$@"
+  exec "$SCRIPT_DIR/bin/linux.sh" "$@"
   ;;
 Darwin*)
   echo "Detected macOS."
-  exec "$(dirname "$0")/darwin.sh" "$@"
+  exec "$SCRIPT_DIR/bin/darwin.sh" "$@"
   ;;
 *)
   echo "Unsupported OS: $OS_TYPE"
