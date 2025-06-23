@@ -13,16 +13,20 @@ for arg in "$@"; do
   esac
 done
 
+# Resolve the absolute path to the directory of the current script, following symlinks
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo SCRIPT_DIR: "$SCRIPT_DIR"
+
 # Import modules
-source "$(dirname "$0")/modules/git.sh"
-source "$(dirname "$0")/modules/nvm.sh"
-source "$(dirname "$0")/modules/terminal.sh"
-source "$(dirname "$0")/modules/docker.sh"
-source "$(dirname "$0")/modules/neovim.sh"
-source "$(dirname "$0")/modules/editor.sh"
-source "$(dirname "$0")/modules/lang.sh"
-source "$(dirname "$0")/modules/tooling.sh"
-source "$(dirname "$0")/modules/utility.sh"
+source "$SCRIPT_DIR/src/modules/git.sh"
+source "$SCRIPT_DIR/src/modules/nvm.sh"
+source "$SCRIPT_DIR/src/modules/terminal.sh"
+source "$SCRIPT_DIR/src/modules/docker.sh"
+source "$SCRIPT_DIR/src/modules/editor.sh"
+source "$SCRIPT_DIR/src/modules/lang.sh"
+source "$SCRIPT_DIR/src/modules/tooling.sh"
+source "$SCRIPT_DIR/src/modules/utility.sh"
 
 # Function wrappers with dry-run support
 run_step() {
@@ -47,8 +51,7 @@ main() {
   echo "2) NVM & Node.js (latest stable)"
   echo "3) Terminal Emulator"
   echo "4) Docker & Docker Compose"
-  echo "5) Neovim"
-  echo "6) Editor"
+  echo "6) Editor (Neovim + tmux, etc.)"
   echo "7) Programming Languages (Golang, etc.)"
   echo "8) Tooling (aws-cli, etc.)"
   echo "9) Utiltities (bitwarden-cli, lazygit, etc.)"
@@ -91,7 +94,6 @@ main() {
     run_step "Setting up NVM and Node.js..." setup_nvm
     run_step "Setting up Terminal Emulator..." setup_terminal
     run_step "Setting up Docker and Docker Compose..." setup_docker
-    run_step "Setting up Neovim..." setup_neovim
     run_step "Setting up Editor..." setup_editor
     run_step "Setting up Programming Languages..." setup_languages
     run_step "Setting up Tooling..." setup_tooling
@@ -107,8 +109,7 @@ main() {
     ;;
   esac
 
-  echo ""
-  echo "✅ Setup complete."
+  printf "\n✅ Setup complete.\n"
 }
 
 main
