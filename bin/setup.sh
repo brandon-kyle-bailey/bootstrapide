@@ -15,6 +15,24 @@ SCRIPT_DIR="$(cd -P "$(dirname "$SCRIPT_SOURCE")" >/dev/null 2>&1 && pwd)"
 
 echo "Resolved script directory: $SCRIPT_DIR"
 
+echo "
+______             _       _                  ___________ _____ 
+| ___ \           | |     | |                |_   _|  _  \  ___|
+| |_/ / ___   ___ | |_ ___| |_ _ __ __ _ _ __  | | | | | | |__  
+| ___ \/ _ \ / _ \| __/ __| __| '__/ _\` | '_ \ | | | | | |  __| 
+| |_/ / (_) | (_) | |_\__ \ |_| | | (_| | |_) || |_| |/ /| |___ 
+\____/ \___/ \___/ \__|___/\__|_|  \__,_| .__/\___/|___/ \____/ 
+                                        | |                     
+                                        |_|                     
+
+"
+
+# === Handle --update flag ===
+if [[ "$1" == "--update" ]]; then
+  "$INSTALL_ROOT/update.sh"
+  exit $?
+fi
+
 case "$OS_TYPE" in
 Linux*)
   echo "Detected Linux OS."
