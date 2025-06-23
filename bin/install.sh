@@ -23,12 +23,12 @@ else
 fi
 
 # Make sure main script is executable (adjust if your CLI entry point differs)
-chmod +x "$INSTALL_DIR/setup.sh"
+chmod +x "$INSTALL_DIR/bin/setup.sh"
 
 # Create or update symlink for easy access
 if [[ -L "$BIN_LINK" ]]; then
   echo "Updating symlink at $BIN_LINK"
-  ln -sf "$INSTALL_DIR/setup.sh" "$BIN_LINK"
+  ln -sf "$INSTALL_DIR/bin/setup.sh" "$BIN_LINK"
 elif [[ -e "$BIN_LINK" ]]; then
   echo "Warning: $BIN_LINK exists and is not a symlink. Please remove or rename it first."
 else
