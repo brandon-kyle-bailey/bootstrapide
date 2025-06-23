@@ -19,11 +19,11 @@ case "$OS_TYPE" in
 Linux*)
   echo "Detected Linux OS."
   # Either source or exec linux script
-  exec "$SCRIPT_DIR/bin/linux.sh" "$@"
+  exec "$SCRIPT_DIR/linux.sh" "$@"
   ;;
 Darwin*)
   echo "Detected macOS."
-  exec "$SCRIPT_DIR/bin/darwin.sh" "$@"
+  exec "$SCRIPT_DIR/darwin.sh" "$@"
   ;;
 *)
   echo "Unsupported OS: $OS_TYPE"
