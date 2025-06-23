@@ -22,17 +22,21 @@ while [ -h "$SCRIPT_SOURCE" ]; do
 done
 SCRIPT_DIR="$(cd -P "$(dirname "$SCRIPT_SOURCE")" >/dev/null 2>&1 && pwd)"
 
-echo "Resolved script directory: $SCRIPT_DIR"
+# The project root directory is one level up from the script directory (which is "bin")
+BASE_DIR="$(dirname "$SCRIPT_DIR")"
 
-# Import modules
-source "$SCRIPT_DIR/src/modules/git.sh"
-source "$SCRIPT_DIR/src/modules/nvm.sh"
-source "$SCRIPT_DIR/src/modules/terminal.sh"
-source "$SCRIPT_DIR/src/modules/docker.sh"
-source "$SCRIPT_DIR/src/modules/editor.sh"
-source "$SCRIPT_DIR/src/modules/lang.sh"
-source "$SCRIPT_DIR/src/modules/tooling.sh"
-source "$SCRIPT_DIR/src/modules/utility.sh"
+echo "Resolved script directory: $SCRIPT_DIR"
+echo "Project base directory: $BASE_DIR"
+
+# Now source modules from BASE_DIR/src/modules/
+source "$BASE_DIR/src/modules/git.sh"
+source "$BASE_DIR/src/modules/nvm.sh"
+source "$BASE_DIR/src/modules/terminal.sh"
+source "$BASE_DIR/src/modules/docker.sh"
+source "$BASE_DIR/src/modules/editor.sh"
+source "$BASE_DIR/src/modules/lang.sh"
+source "$BASE_DIR/src/modules/tooling.sh"
+source "$BASE_DIR/src/modules/utility.sh"
 
 # Function wrappers with dry-run support
 run_step() {
