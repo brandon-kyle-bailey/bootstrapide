@@ -37,6 +37,7 @@ source "$BASE_DIR/src/modules/editor.sh"
 source "$BASE_DIR/src/modules/lang.sh"
 source "$BASE_DIR/src/modules/tooling.sh"
 source "$BASE_DIR/src/modules/utility.sh"
+source "$BASE_DIR/src/modules/fonts.sh"
 
 # Function wrappers with dry-run support
 run_step() {
@@ -65,7 +66,8 @@ main() {
   echo "7) Programming Languages (Golang, etc.)"
   echo "8) Tooling (aws-cli, etc.)"
   echo "9) Utiltities (bitwarden-cli, lazygit, etc.)"
-  echo "10) All"
+  echo "10) Fonts (NerdFonts, etc.)"
+  echo "11) All"
   echo "0) Exit"
   echo ""
 
@@ -97,6 +99,9 @@ main() {
     run_step "Setting up Utilities..." darwin_setup_utilities
     ;;
   10)
+    run_step "Setting up Fonts..." darwin_setup_fonts
+    ;;
+  11)
     run_step "Setting up Git and GitHub CLI..." darwin_setup_git
     run_step "Setting up NVM and Node.js..." darwin_setup_nvm
     run_step "Setting up Terminal Emulator..." darwin_setup_terminal
@@ -105,6 +110,7 @@ main() {
     run_step "Setting up Programming Languages..." darwin_setup_languages
     run_step "Setting up Tooling..." darwin_setup_tooling
     run_step "Setting up Utilities..." darwin_setup_utilities
+    run_step "Setting up Fonts..." darwin_setup_fonts
     ;;
   0)
     echo "Exiting."
