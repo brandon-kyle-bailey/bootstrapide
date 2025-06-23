@@ -29,7 +29,7 @@ ______             _       _                  ___________ _____
 
 # === Handle --update flag ===
 if [[ "$1" == "--update" ]]; then
-  "$INSTALL_ROOT/update.sh"
+  exec "$SCRIPT_DIR/update.sh" "$@"
   exit $?
 fi
 

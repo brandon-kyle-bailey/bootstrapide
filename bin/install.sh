@@ -61,6 +61,18 @@ else
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+
+echo "
+______             _       _                  ___________ _____ 
+| ___ \           | |     | |                |_   _|  _  \  ___|
+| |_/ / ___   ___ | |_ ___| |_ _ __ __ _ _ __  | | | | | | |__  
+| ___ \/ _ \ / _ \| __/ __| __| '__/ _\` | '_ \ | | | | | |  __| 
+| |_/ / (_) | (_) | |_\__ \ |_| | | (_| | |_) || |_| |/ /| |___ 
+\____/ \___/ \___/ \__|___/\__|_|  \__,_| .__/\___/|___/ \____/ 
+                                        | |                     
+                                        |_|                     
+
+"
 echo "Installation complete! You can now run the tool by typing:"
 
-echo "  bootstrapide"
+printf "\nbootstrapide\n"
