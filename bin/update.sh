@@ -22,7 +22,7 @@ if [[ ! -d .git ]]; then
 fi
 
 # Pull latest changes
-git pull origin main || git pull origin master
+git pull origin master
 
 # Ensure bin scripts are executable
 find "$INSTALL_DIR/bin" -type f -exec chmod +x {} \;
