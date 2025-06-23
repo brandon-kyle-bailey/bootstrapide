@@ -23,7 +23,7 @@ else
 fi
 
 # Make sure main script is executable (adjust if your CLI entry point differs)
-chmod +x "$INSTALL_DIR/bin/setup.sh"
+chmod +x "$INSTALL_DIR/bin/"*
 
 # Create or update symlink for easy access
 if [[ -L "$BIN_LINK" ]]; then
