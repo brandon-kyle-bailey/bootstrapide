@@ -21,6 +21,8 @@ source "$(dirname "$0")/modules/docker.sh"
 source "$(dirname "$0")/modules/neovim.sh"
 source "$(dirname "$0")/modules/editor.sh"
 source "$(dirname "$0")/modules/lang.sh"
+source "$(dirname "$0")/modules/tooling.sh"
+source "$(dirname "$0")/modules/utility.sh"
 
 # Function wrappers with dry-run support
 run_step() {
@@ -47,8 +49,10 @@ main() {
   echo "4) Docker & Docker Compose"
   echo "5) Neovim"
   echo "6) Editor"
-  echo "7) Programming Languages"
-  echo "9) All"
+  echo "7) Programming Languages (Golang, etc.)"
+  echo "8) Tooling (aws-cli, etc.)"
+  echo "9) Utiltities (bitwarden-cli, lazygit, etc.)"
+  echo "10) All"
   echo "0) Exit"
   echo ""
 
@@ -76,7 +80,13 @@ main() {
   7)
     run_step "Setting up Programming Languages..." setup_languages
     ;;
+  8)
+    run_step "Setting up Tooling..." setup_tooling
+    ;;
   9)
+    run_step "Setting up Utilities..." setup_utilities
+    ;;
+  10)
     run_step "Setting up Git and GitHub CLI..." setup_git
     run_step "Setting up NVM and Node.js..." setup_nvm
     run_step "Setting up Terminal Emulator..." setup_terminal
@@ -84,6 +94,8 @@ main() {
     run_step "Setting up Neovim..." setup_neovim
     run_step "Setting up Editor..." setup_editor
     run_step "Setting up Programming Languages..." setup_languages
+    run_step "Setting up Tooling..." setup_tooling
+    run_step "Setting up Utilities..." setup_utilities
     ;;
   0)
     echo "Exiting."
